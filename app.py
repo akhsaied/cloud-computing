@@ -6,7 +6,7 @@ import mysql.connector
 import mysql
 import os
 import atexit
-from apscheduler.schedulers.background import BackgroundScheduler
+#from apscheduler.schedulers.background import BackgroundScheduler
 #from cache.image_cache import ImageCache
 from PIL import Image
 import base64
@@ -238,9 +238,9 @@ if __name__ == "__main__":
     config = cursor.fetchall()
     cursor.close()
    # cache.updateMaxSizeByte(int(config[0][0]))
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(func=storeStats, trigger="interval", seconds=60*10)
-    scheduler.start()
+   # scheduler = BackgroundScheduler()
+   # scheduler.add_job(func=storeStats, trigger="interval", seconds=60*10)
+   # scheduler.start()
 
-    atexit.register(lambda: scheduler.shutdown())
+   # atexit.register(lambda: scheduler.shutdown())
     app.run(debug=True)
